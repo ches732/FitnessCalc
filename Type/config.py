@@ -1,8 +1,6 @@
 from pydantic import BaseModel, ValidationError, validator
-from Base import BaseFitnessCalc
-from gender import GenderType
-from func_gender import category_male, category_female, metabolism
-import json
+from Type.func_gender import category_male, category_female, metabolism
+from Type.gender import GenderType
 
 
 class Parameters(BaseModel):
@@ -29,5 +27,3 @@ class Parameters(BaseModel):
         else:
             e = "Short"
         return e
-
-

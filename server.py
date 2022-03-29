@@ -1,10 +1,8 @@
-import json
-from flask import Flask, jsonify, abort, request, Response
-from Base import BaseFitnessCalc, GenderType
-from Parents import FemaleFitnessCalc, MaleFitnessCalc
-from func_gender import category_male, category_female, metabolism
-from config import Parameters, ValidationError
-
+from flask import Flask, jsonify, abort, request
+from CalcClasses.Base import BaseFitnessCalc
+from CalcClasses.Parents import FemaleFitnessCalc, MaleFitnessCalc
+from Type.config import Parameters, ValidationError
+from Type.gender import GenderType
 
 app = Flask(__name__)
 
@@ -64,4 +62,4 @@ def counting_callories():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)

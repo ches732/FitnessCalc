@@ -1,9 +1,8 @@
 from typing import Union
-from abc import ABC, abstractmethod
-from gender import GenderType
+from Type.gender import GenderType
 
 
-class BaseFitnessCalc(ABC):
+class BaseFitnessCalc:
     metabolism = {"Short": 1.2, "Average": 1.375, "High": 1.55, "Extreme": 1.7}
 
     def __init__(self, weight: float, height: float, age: float, gender: GenderType, exercise_stress: str) -> None:
