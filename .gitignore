@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+./home/kirill/FitnessCalc/cmv-db-data:/var/lib/postgresql/data
+./home/kirill/FitnessCalc/env/pgsql/migrations/initdb.sql:/docker-entrypoint-initdb.d
