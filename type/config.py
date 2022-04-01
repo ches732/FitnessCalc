@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ValidationError, validator
-from Type.func_gender import category_male, category_female, metabolism
-from Type.gender import GenderType
+from type.func_gender import category_male, category_female, metabolism
+from type.gender import GenderType
 
 
 class Parameters(BaseModel):

@@ -1,6 +1,6 @@
 from typing import Union
-from CalcClasses.Base import BaseFitnessCalc
-from Type.gender import GenderType
+from calcclasses.Base import BaseFitnessCalc
+from type.gender import GenderType
 
 
 class MaleFitnessCalc(BaseFitnessCalc):

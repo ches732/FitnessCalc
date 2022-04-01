@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, abort, request
-from CalcClasses.Base import BaseFitnessCalc
-from CalcClasses.Parents import FemaleFitnessCalc, MaleFitnessCalc
-from Type.config import Parameters, ValidationError
-from Type.gender import GenderType
+from calcclasses.Base import BaseFitnessCalc
+from calcclasses.Parents import FemaleFitnessCalc, MaleFitnessCalc
+from type.config import Parameters, ValidationError
+from type.gender import GenderType
 
 app = Flask(__name__)
 

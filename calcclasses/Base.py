@@ -1,5 +1,5 @@
 from typing import Union
-from Type.gender import GenderType
+from type.gender import GenderType
 
 
 class BaseFitnessCalc:
