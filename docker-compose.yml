@@ -1,6 +1,6 @@
 version: "3"
 networks:
-  cmv_net:
+  calc_net:
     driver: bridge
 services:
   server:
@@ -8,11 +8,11 @@ services:
     command: python ./server.py
     ports:
       - 5000:5000
-  cmv-pgsql:
+  calc-pgsql:
     image: postgres:13.3
     volumes:
-      - ./home/kirill/FitnessCalc/cmv-db-data:/var/lib/postgresql/data
-      - ./home/kirill/FitnessCalc/env/pgsql/migrations/initdb.sql:/docker-entrypoint-initdb.d
+      - ./cmv-db-data:/var/lib/postgresql/data
+      - ./env:/pgsql/initdb.sql/docker-entrypoint-initdb.d
     environment:
       POSTGRES_DB: habrdb
       POSTGRES_USER: habrkirill
@@ -21,4 +21,4 @@ services:
     ports:
       - 43432:5432
     networks:
-      - cmv_net
+      - calc_net

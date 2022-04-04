@@ -1,5 +1,5 @@
-from calcclasses.Parents import MaleFitnessCalc, FemaleFitnessCalc
-from calcclasses.Children import ChildrenBoyFitnessCalc, ChildrenGirlFitnessCalc
+from module.Parents import MaleFitnessCalc, FemaleFitnessCalc
+from module.Children import ChildrenBoyFitnessCalc, ChildrenGirlFitnessCalc
 
 
 category_male = ["male", "guy", "men"]
