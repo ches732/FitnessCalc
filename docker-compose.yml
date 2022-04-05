@@ -3,6 +3,13 @@ networks:
   calc_net:
     driver: bridge
 services:
+  flyway:
+    image: flyway/flyway:8.5.5-alpine
+    command: -url=jdbc:postgresql://localhost:5432/habrdb -schemas=habrdb -user=habrkirill -password=qwerty -connectRetries=60 migrate
+    volumes:
+      - ./env/pgsql/migration:/flyway/sq:ro
+    depends_on:
+      - calc-pgsql
   server:
     build: ./
     command: python ./server.py
@@ -11,8 +18,8 @@ services:
   calc-pgsql:
     image: postgres:13.3
     volumes:
-      - ./cmv-db-data:/var/lib/postgresql/data
-      - ./env:/pgsql/initdb.sql/docker-entrypoint-initdb.d
+      - ./calc-db-data:/var/lib/postgresql/data
+      - ./env/pgsql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     environment:
       POSTGRES_DB: habrdb
       POSTGRES_USER: habrkirill
