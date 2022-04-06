@@ -1,6 +1,12 @@
 from pydantic import BaseModel, ValidationError, validator
-from type.func_gender import category_male, category_female, metabolism
 from type.gender import GenderType
+
+
+category_male = ["male", "guy", "men"]
+category_children_boy = ["girl", "young girl"]
+category_female = ["female", "woman", "girl"]
+category_children_girl = ["boy", "youth"]
+metabolism = {"Short": 1.2, "Average": 1.375, "High": 1.55, "Extreme": 1.7}
 
 
 class Parameters(BaseModel):

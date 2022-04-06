@@ -5,14 +5,16 @@ networks:
 services:
   flyway:
     image: flyway/flyway:8.5.5-alpine
-    command: -url=jdbc:postgresql://localhost:5432/habrdb -schemas=habrdb -user=habrkirill -password=qwerty -connectRetries=60 migrate
+    command: -url=jdbc:postgresql://localhost:43432/habrdb -schemas=habrdb -user=habrkirill -password=qwerty -connectRetries=60 migrate
     volumes:
-      - ./env/pgsql/migration:/flyway/sq:ro
+      - ./env/pgsql/migrations:/flyway/sql:ro
     depends_on:
       - calc-pgsql
   server:
-    build: ./
-    command: python ./server.py
+    build: ./env/server
+    command: python ../server.py
+    volumes:
+      - ./module:/server.py
     ports:
       - 5000:5000
   calc-pgsql:
