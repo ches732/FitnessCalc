@@ -1,7 +1,6 @@
 from pydantic import BaseModel, ValidationError, validator
 from type.gender import GenderType
 
-
 category_male = ["male", "guy", "men"]
 category_children_boy = ["girl", "young girl"]
 category_female = ["female", "woman", "girl"]

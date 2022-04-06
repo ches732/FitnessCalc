@@ -11,10 +11,13 @@ services:
     depends_on:
       - calc-pgsql
   server:
-    build: ./env/server
+    image: server
+    build: 
+      context: .
+      dockerfile: ./env/server/Dockerfile
     command: python ./server.py
     volumes:
-      - .:/module/
+      - ./apps:/apps
     ports:
       - 5000:5000
   calc-pgsql:

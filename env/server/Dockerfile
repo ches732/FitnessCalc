@@ -1,7 +1,7 @@
 FROM python:3.9
 
+COPY ./requirements.txt ./requirements.txt
 
-WORKDIR /FitnessCalc
-COPY . /FitnessCalc
+RUN pip install -r requirements.txt
 
-RUN pip install -r requirements.txt 
+WORKDIR /apps
