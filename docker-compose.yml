@@ -12,9 +12,9 @@ services:
       - calc-pgsql
   server:
     build: ./env/server
-    command: python ../server.py
+    command: python ./server.py
     volumes:
-      - ./module:/server.py
+      - .:/module/
     ports:
       - 5000:5000
   calc-pgsql:
