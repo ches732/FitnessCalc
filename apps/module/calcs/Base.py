@@ -12,7 +12,6 @@ class BaseFitnessCalc:
         self.gender = gender
         self.exercise_stress = exercise_stress
 
-
     def squirrels_fatscarbohy_drates(self) -> Union[float, None]:
         """We calculate the daily intake of protein, fats and carbohydrates."""
         if self.gender is GenderType.MALE:

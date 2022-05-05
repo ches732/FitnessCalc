@@ -10,7 +10,7 @@ class ChildrenBoyFitnessCalc(BaseFitnessCalc):
 
     def calc_calories(self) -> Union[float, None]:
         """Daily Calorie Calculation."""
-        self.result_calories_male = self.result * self.metabolism[self.exercise_stress]
+        self.result_calories_male = self.result_sfd * self.metabolism[self.exercise_stress]
         return self.result_calories_male
 
 
@@ -21,5 +21,5 @@ class ChildrenGirlFitnessCalc(BaseFitnessCalc):
 
     def calc_calories(self) -> Union[float, None]:
         """Daily Calorie Calculation."""
-        self.result_calories_female = self.result * self.metabolism[self.exercise_stress]
+        self.result_calories_female = self.result_sfd * self.metabolism[self.exercise_stress]
         return self.result_calories_female
