@@ -1,5 +1,5 @@
 from typing import Union
-from module.calcs.Base import BaseFitnessCalc
+from module.calcs.base import BaseFitnessCalc
 from type.gender import GenderType
 
 
