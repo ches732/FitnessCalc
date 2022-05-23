@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, abort, request
-from module.calcs.Base import BaseFitnessCalc
-from module.calcs.Parents import FemaleFitnessCalc, MaleFitnessCalc
+from module.calcs.base import BaseFitnessCalc
+from module.calcs.parents import FemaleFitnessCalc, MaleFitnessCalc
 from type.config import Parameters, ValidationError
 from type.gender import GenderType
 from module.calcs.database import Database
