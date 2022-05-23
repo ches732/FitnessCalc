@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2.extras import RealDictCursor
 
 
 class Database:
@@ -12,6 +13,7 @@ class Database:
 
     def decorate(func):
         """Database connection"""
+
         def wrapper(self, *args, **kwargs):
             ps_connection = psycopg2.connect(user=self.user,
                                              password=self.password,
@@ -19,12 +21,13 @@ class Database:
                                              port=self.port,
                                              database=self.dbname)
             ps_connection.autocommit = True
-            cursor = ps_connection.cursor()
+            cursor = ps_connection.cursor(cursor_factory=RealDictCursor)
             kwargs["cursor"] = cursor
             data = func(self, *args, **kwargs)
             cursor.close()
             ps_connection.close()
             return data
+
         return wrapper
 
     @decorate
@@ -45,12 +48,20 @@ class Database:
             VALUES ({', '.join(placeholders)})
             ON CONFLICT ({''.join(keys[0:1])}, {''.join(keys[1:2])}) DO UPDATE
             SET {
-                ', '.join([f"{keys} = '{values}'" for keys, values in param])
-            }
+        ', '.join([f"{keys} = '{values}'" for keys, values in param])
+        }
         """
 
         cursor.execute(sql, values)
         return sql
+
+    @decorate
+    def getting_results(self, cursor=None):
+        sql = "SELECT id, ip_adress, gender, bju, water, callories FROM result ORDER BY id"
+
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result
 
 
 if __name__ == '__main__':

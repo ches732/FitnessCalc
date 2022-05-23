@@ -85,5 +85,11 @@ def counting_callories():
         return jsonify({"result_callories": result_callories})
 
 
+@app.route('/calc/api/v1.0/param', methods=['GET'])
+def param():
+    response = db.getting_results()
+    return jsonify({"response": response})
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
